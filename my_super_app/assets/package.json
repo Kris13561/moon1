@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "deploy_css": "NODE_ENV=production tailwindcss --postcss --minify -i css/app.css -o ../priv/static/assets/app.css",
+    "deploy_js": "NODE_PATH=../deps esbuild js/app.js --bundle --target=es2016 --outdir=../priv/static/assets --minify ",
+    "deploy": "npm run deploy_css && npm run deploy_js",
+    "watch_css": "tailwindcss --input=css/app.css --output=../priv/static/assets/app.css --postcss --watch",
+    "watch_js": "NODE_PATH=../deps esbuild js/app.js --bundle --target=es2016 --outdir=../priv/static/assets --sourcemap=inline --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.2",
+    "autoprefixer": "^10.4.7",
+    "esbuild": "^0.14.49",
+    "postcss": "^8.3.6",
+    "postcss-import": "^14.0.2",
+    "tailwindcss": "^3.1.6",
+    "tailwindcss-rtl": "^0.9.0"
+  }
+}
